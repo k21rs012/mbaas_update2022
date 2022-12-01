@@ -71,7 +71,8 @@
 
 
         function countData() {
-            $("#display").html("count does not work");
+            let UTdata = ncmb.DataStore("UpdateTest");
+            UTdata.count().fetchAll()
         }
 
         function deleteData() {
@@ -94,7 +95,8 @@
         function updateData() {
             UTdata.fetch()
                 .then(function(results) {
-                    results.set(key, 10);
+                    let value = parseInt($("#update").val());
+                    results.set(key, value);
                     return results.update();
                 })
                 .then(function(results) {
