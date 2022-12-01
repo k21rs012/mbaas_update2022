@@ -75,11 +75,38 @@
         }
 
         function deleteData() {
-            $("#display").html("delete does not work");
+            UTdata.fetch()
+                .then(function(results) {
+                    return results.delete();
+                })
+                .then(function(results) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-success");
+                    $("#display").html("delete success");
+                })
+                .catch(function(error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("delete fail");
+                })
         }
 
         function updateData() {
-            $("#display").html("update does not work");
+            UTdata.fetch()
+                .then(function(results) {
+                    results.set(key, 10);
+                    return results.update();
+                })
+                .then(function(results) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-success");
+                    $("#display").html("update success");
+                })
+                .catch(function(error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("update fail");
+                })
         }
     </script>
 </head>
