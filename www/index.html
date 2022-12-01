@@ -73,6 +73,17 @@
         function countData() {
             let UTdata = ncmb.DataStore("UpdateTest");
             UTdata.count().fetchAll()
+            .then(function(results) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-success");
+                    $("#display").html(results.count + "<br>count success");
+                    
+                })
+                .catch(function(error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("count fail");
+                })
         }
 
         function deleteData() {
