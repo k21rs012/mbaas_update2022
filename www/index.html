@@ -82,7 +82,7 @@
                 .catch(function(error) {
                     $("#display").removeClass();
                     $("#display").addClass("bg-warning");
-                    $("#display").html("count fail");
+                    $("#display").html("count fail" + JSON.stringify(error));
                 })
         }
 
